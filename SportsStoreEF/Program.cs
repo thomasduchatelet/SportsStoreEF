@@ -18,8 +18,12 @@ namespace SportsStoreEF
                 SportsStoreDataInitializer initializer = new SportsStoreDataInitializer(context);
                 initializer.InitializeRecords();
                 Console.WriteLine("Records initialized");
-                var products = context.Products.ToList();
-                products.ForEach(c => Console.WriteLine(c.Name));
+                var Categories = context.Categories.ToList();
+                Categories.ForEach(c =>
+                {
+                    Console.WriteLine($"Products of category {c.Name}:");
+                    c.Products.ToList().ForEach(p => Console.WriteLine($"{p.Product.Name}: {p.Product.Description}"));
+                });
             }
         }
     }

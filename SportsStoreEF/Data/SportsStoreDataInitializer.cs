@@ -18,14 +18,25 @@ namespace SportsStoreEF.Data
         {
             if (!_context.Products.Any())
             {
+
+
                 Product football = new Product("Football", 25, "WK colors");
                 Product cornerflags = new Product("Corner flags", 34.95M, "Give your playing field that professional touch");
                 Product shoes = new Product("Running shoes", 95, "Protective and fashionable");
                 Product surfboard = new Product("Surf board", 275, "A boat for one person");
                 Product kayak = new Product("Kayak", 170, "High quality");
                 Product lifeJacket = new Product("Lifejacket", 49.99M, "Protective and fashionable");
-                Product[] products = { football, cornerflags, shoes, surfboard, kayak, lifeJacket };
-                _context.AddRange(products);
+
+                Category watersports = new Category("WaterSports");
+                Category soccer = new Category("Soccer");
+                soccer.AddProduct(football);
+                soccer.AddProduct(cornerflags);
+                soccer.AddProduct(shoes);
+                watersports.AddProduct(shoes);
+                watersports.AddProduct(surfboard);
+                watersports.AddProduct(kayak);
+                watersports.AddProduct(lifeJacket);
+                _context.AddRange(new Category[] { watersports, soccer });
 
                 City gent = new City("9000", "Gent");
                 City antwerpen = new City("3000", "Antwerpen");
