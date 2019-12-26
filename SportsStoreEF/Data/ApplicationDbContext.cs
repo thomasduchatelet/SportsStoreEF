@@ -10,6 +10,7 @@ namespace SportsStoreEF.Data
     public class ApplicationDbContext : DbContext
     {
         public DbSet<Product> Products { get; set; }
+        public DbSet<City> City { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connectionstring = @"Server=.;Database=SportsStore;Integrated Security=True;";
@@ -20,6 +21,7 @@ namespace SportsStoreEF.Data
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new CityConfiguration());
         }
     }
 }
