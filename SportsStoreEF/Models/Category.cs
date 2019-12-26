@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SportsStore.Models
@@ -35,6 +36,8 @@ namespace SportsStore.Models
             if (FindProduct(product.Name) == null)
                 Products.Add(new CategoryProduct(this, product));
         }
+
+        public void AddProduct(Product[] products) => Array.ForEach(products, p => AddProduct(p));
 
         public void RemoveProduct(Product product)
         {
