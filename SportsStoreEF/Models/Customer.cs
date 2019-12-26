@@ -19,7 +19,7 @@ namespace SportsStore.Models
         #region Constructors
         protected Customer()
         {
-       //    Orders = new List<Order>();
+            Orders = new List<Order>();
         }
 
         public Customer(string customerName, string name, string firstName, string street, City city) : this()
@@ -38,10 +38,10 @@ namespace SportsStore.Models
         #endregion
 
         #region Methods
-      //  public void PlaceOrder(Cart cart, DateTime? deliveryDate, bool giftwrapping, string shippingStreet, City shippingCity)
-      //  {
-      //      Orders.Add(new Order(cart, deliveryDate, giftwrapping, shippingStreet, shippingCity));
-      //  }
+        public void PlaceOrder(Cart cart, DateTime? deliveryDate, bool giftwrapping, string shippingStreet, City shippingCity)
+        {
+            Orders.Add(new Order(cart, deliveryDate, giftwrapping, shippingStreet, shippingCity));
+        }
         #endregion
     }
 }
