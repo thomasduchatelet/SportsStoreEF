@@ -29,6 +29,8 @@ namespace SportsStoreEF.Data.Mappings
                 .WithMany()
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasMany(c => c.Orders).WithOne().IsRequired().OnDelete(DeleteBehavior.Cascade);
                 
         }
     }

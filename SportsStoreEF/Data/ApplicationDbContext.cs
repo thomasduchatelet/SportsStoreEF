@@ -24,6 +24,10 @@ namespace SportsStoreEF.Data
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new CityConfiguration());
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderLineConfiguration());
+            modelBuilder.Ignore<Cart>();
+            modelBuilder.Ignore<CartLine>();
         }
     }
 }
