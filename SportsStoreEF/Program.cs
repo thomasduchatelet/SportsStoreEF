@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SportsStoreEF.Data;
+using System;
 
 namespace SportsStoreEF
 {
@@ -6,7 +7,12 @@ namespace SportsStoreEF
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            using(ApplicationDbContext context = new ApplicationDbContext())
+            {
+                context.Database.EnsureDeleted();
+                context.Database.EnsureCreated();
+                Console.WriteLine("Database created");
+            }
         }
     }
 }
