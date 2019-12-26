@@ -14,7 +14,7 @@ namespace SportsStore.Models
         public string ShippingStreet { get; set; }
         public City ShippingCity { get; set; }
         public ICollection<OrderLine> OrderLines { get; private set; }
-        public decimal Total { get; }
+        public decimal Total => OrderLines.Sum(ol => ol.Total);
         #endregion
 
         #region Constructors
@@ -47,10 +47,7 @@ namespace SportsStore.Models
         #endregion
 
         #region Methods
-        public bool HasOrdered(Product p)
-        {
-            throw new NotImplementedException();
-        }
+        public bool HasOrdered(Product p) => OrderLines.Any(ol => ol.Product.Equals(p));
         #endregion
 
     }
