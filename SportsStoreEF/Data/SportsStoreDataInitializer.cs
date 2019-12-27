@@ -43,6 +43,7 @@ namespace SportsStoreEF.Data
                 City[] cities = { gent, antwerpen };
                 _context.AddRange(cities);
 
+                _context.SaveChanges();
                 Random r = new Random();
                 for (int i = 1; i < 10; i++)
                 {
@@ -54,6 +55,7 @@ namespace SportsStoreEF.Data
                         cart.AddLine(cornerflags, 2);
                         klant.PlaceOrder(cart, DateTime.Today, false, klant.Street, klant.City);
                     }
+                    _context.Add(klant);
                 }
 
                 _context.SaveChanges();

@@ -12,6 +12,7 @@ namespace SportsStoreEF.Data.Mappings
         public void Configure(EntityTypeBuilder<Product> builder)
         {
             builder.ToTable("Product");
+            builder.HasKey(p => p.ProductId);
 
             builder.Property(p => p.Description)
                 .IsRequired(false);
